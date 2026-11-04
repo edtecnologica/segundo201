@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#75253b">
+  <meta name="description" content="Muestra virtual de los proyectos de Educación Tecnológica de segundo año del Instituto Secundario D-201 José Manuel Estrada, Federal, Entre Ríos.">
+  <title>Educación Tecnológica · Muestra digital 2.º año</title>
+  <link rel="icon" type="image/png" href="assets/escudo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#proyectos">Ir a los proyectos</a>
+  <div class="top-line"></div>
+  <header class="site-header" id="inicio">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="Volver al inicio">
+        <img src="assets/escudo.png" alt="Escudo de la institución">
+        <span><b>Instituto Secundario D-201</b><small>“José Manuel Estrada” · Federal, Entre Ríos</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a><a href="#metodologia">El proceso</a><a href="#archivo">Archivo visual</a>
+      </nav>
+      <a href="#proyectos" class="nav-cta">Explorar muestra <span>↗</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero shell">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MUESTRA DIGITAL · SEGUNDO AÑO</div>
+        <h1>EDUCACIÓN<br><em>TECNOLÓGICA</em><span class="title-dot">.</span></h1>
+        <p class="hero-lead">Ideas que transforman<br><strong>nuestros espacios.</strong></p>
+        <p class="hero-copy">Un recorrido por los desafíos, las propuestas y las maquetas que construyeron los estudiantes para imaginar una escuela mejor.</p>
+        <div class="hero-actions"><a href="#proyectos" class="button button-primary">Conocer los proyectos <span>↗</span></a><a href="#metodologia" class="button button-link">Cómo trabajamos <span>↓</span></a></div>
+        <div class="hero-foot">Proyectos de aula <span>●</span> Construcción de prototipos <span>●</span> Exploración virtual</div>
+      </div>
+      <div class="hero-gallery" aria-label="Fotografías de las maquetas realizadas">
+        <div class="hero-orbit ring-one"></div><div class="hero-orbit ring-two"></div>
+        <div class="hero-photo hero-photo-one"><img src="assets/fotos/46.webp" alt="Maqueta de un aula organizada"></div>
+        <div class="hero-photo hero-photo-two"><img src="assets/fotos/36.webp" alt="Maqueta del kiosco escolar"></div>
+        <div class="hero-photo hero-photo-three"><img src="assets/fotos/26.webp" alt="Maqueta del asiento para el patio"></div>
+        <div class="hero-label"><span class="hero-label-circle">↻</span><span>Observar.<br>Diseñar.<br><strong>Transformar.</strong></span></div>
+        <div class="hero-corner-mark">ET / 02</div>
+      </div>
+    </section>
+    <section class="metrics-band" aria-label="Datos de la muestra"><div class="shell metrics">
+      <div><strong>07</strong><span>problemáticas<br>para investigar</span></div><div><strong>71</strong><span>fotografías<br>del recorrido</span></div><div><strong>3D</strong><span>modelos orientativos<br>que podés girar</span></div>
+      <p>La tecnología comienza cuando identificamos una necesidad y buscamos una solución.</p>
+    </div></section>
+    <section class="projects-section shell" id="proyectos">
+      <div class="section-head"><div><div class="eyebrow"><span class="eyebrow-line"></span> 01 / LA MUESTRA</div><h2>Proyectos para <em>explorar.</em></h2><p>Elegí una propuesta para conocer el problema que la inspiró, leer el contenido de sus afiches y recorrer las maquetas.</p></div><span class="section-counter">7 DESAFÍOS <span>/</span> 2.º AÑO</span></div>
+      <div class="filters-bar" role="group" aria-label="Filtrar proyectos">
+        <button class="filter active" data-filter="all" aria-pressed="true">Todos <span>07</span></button>
+        <button class="filter" data-filter="models" aria-pressed="false">Con modelo 3D</button>
+        <button class="filter" data-filter="posters" aria-pressed="false">Con afiche</button>
+        <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="project-search" type="search" placeholder="Buscar un proyecto..." aria-label="Buscar un proyecto"></div>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+      <p id="no-results" class="no-results" hidden>No se encontraron proyectos para esa búsqueda.</p>
+    </section>
+    <section class="method-section" id="metodologia"><div class="shell">
+      <div class="method-top"><div><div class="eyebrow light"><span class="eyebrow-line"></span> 02 / EL PROCESO</div><h2>De un problema real<br>a una <em>idea posible.</em></h2></div><p>La actividad propuso recorrer las etapas de un proyecto tecnológico: investigar, comparar alternativas, planificar, construir y evaluar.</p></div>
+      <div class="method-steps" id="method-steps"></div>
+      <div class="method-bottom">LA ESCUELA COMO ESPACIO PARA IMAGINAR Y CONSTRUIR SOLUCIONES <span>↗</span></div>
+    </div></section>
+    <section class="archive-section shell" id="archivo"><div class="section-head"><div><div class="eyebrow"><span class="eyebrow-line"></span> 03 / ARCHIVO VISUAL</div><h2>Más para <em>descubrir.</em></h2><p>También se conservan materiales del ZIP que no pudimos asociar de manera segura a uno de los siete grupos.</p></div></div>
+      <div class="archive-grid">
+        <article class="archive-card archive-prototype"><div class="archive-img"><img src="assets/fotos/01.webp" alt="Maqueta adicional de un espacio con bancos y estantes" loading="lazy"><span class="arch-tag">PROTOTIPO SIN ATRIBUCIÓN</span></div><div class="archive-copy"><small>UN MODELO MÁS</small><h3>Espacio con bancos y estantes</h3><p>Una maqueta fotografiada desde varios ángulos. Su grupo no se identifica de manera concluyente en los archivos.</p><button class="text-button" data-extra="prototype">Explorar el modelo y sus fotos ↗</button></div></article>
+        <article class="archive-card"><div class="archive-img"><img src="assets/fotos/70.webp" alt="Afiche titulado Esfera de Dyson" loading="lazy"><span class="arch-tag">AFICHE COMPLEMENTARIO</span></div><div class="archive-copy"><small>OTRO MATERIAL DEL ZIP</small><h3>La esfera de Dyson</h3><p>Un afiche sobre una estructura hipotética de captación de energía estelar. Se incluye por separado de las consignas del proyecto.</p><button class="text-button" data-extra="dyson">Ver el contenido digitalizado ↗</button></div></article>
+      </div>
+    </section>
+    <section class="closing"><div class="shell closing-inner"><div class="closing-icon">✳</div><div><div class="eyebrow light">EDUCACIÓN TECNOLÓGICA · 2.º AÑO</div><h2>Todo gran proyecto<br>empieza con <em>una pregunta.</em></h2><p>Gracias por recorrer los trabajos realizados por nuestros estudiantes.</p></div><a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div class="footer-school"><img src="assets/escudo.png" alt=""/><span>Instituto Secundario D-201<br><strong>“José Manuel Estrada”</strong></span></div><small>Federal · Entre Ríos · Educación Tecnológica · Segundo año</small><span class="footer-stamp">PROYECTOS / 2026</span></div></footer>
+
+  <div class="modal-shell" id="project-modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close="modal"></div>
+    <section class="modal-content" role="dialog" aria-modal="true" aria-label="Detalle del proyecto" tabindex="-1">
+      <div class="modal-head"><div class="modal-crumb">MUESTRA DIGITAL <span>/</span> <b id="modal-group">GRUPO 01</b></div><button class="close-modal" data-close="modal" aria-label="Cerrar proyecto">×</button></div>
+      <div id="modal-body"></div>
+    </section>
+  </div>
+  <div class="lightbox" id="lightbox" hidden><button id="close-lightbox" aria-label="Cerrar imagen">×</button><img alt="Fotografía ampliada" id="lightbox-image"><p id="lightbox-caption"></p></div>
+</body>
+</html>
