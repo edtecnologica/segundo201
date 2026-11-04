@@ -1,41 +1,28 @@
-MUESTRA DIGITAL · EDUCACIÓN TECNOLÓGICA · SEGUNDO AÑO
-Instituto Secundario D-201 “José Manuel Estrada” · Federal, Entre Ríos
+MUESTRA DIGITAL | EDUCACIÓN TECNOLÓGICA | INSTITUTO SECUNDARIO D-201
+===============================================================
 
-CONTENIDO
-- index.html: página principal.
-- styles.css: estilos visuales (bordó, blanco y arena).
-- data.js: fichas de los siete proyectos, basadas en las consignas y los afiches.
-- model.js: visor interactivo en Canvas con geometrías 3D aproximadas.
-- app.js: navegación, filtros, fotografías, visor y galería.
-- assets: logotipo institucional y las 71 fotografías optimizadas en WebP.
+PARA ABRIR LA PÁGINA
+1. Extraer el archivo ZIP completo.
+2. Entrar en la carpeta Muestra_Digital_Estrada_COMPLETA.
+3. Hacer doble clic en index.html para abrirlo con Chrome o Edge.
+4. No mover index.html fuera de la carpeta: necesita styles.css, app.js y assets/.
 
-PARA VERLA
-1. Extraé el ZIP completo (no abras index.html dentro del ZIP).
-2. Abrí index.html desde Chrome, Edge, Firefox o Safari.
-3. En la portada, elegí cualquier proyecto y usá «Modelo 3D», «Fotografías» o «Afiche».
-4. En los modelos, arrastrá para girar y usá + / − para el zoom.
-5. En «Fotografías», utilizá las flechas o las miniaturas para recorrer las vistas reales.
+ARCHIVOS
+- index.html: estructura de la página.
+- styles.css: diseño y versión para celulares.
+- app.js: fichas y comportamiento de las galerías/visores.
+- assets/escudo_sin_fondo.png: logo institucional.
+- assets/afiches/: digitalizaciones de los afiches de cada grupo.
+- assets/maquetas_sin_fondo/: 61 imágenes WEBP con transparencia para la página.
+- fuentes/imagenes_png/: las mismas 61 imágenes en PNG con fondo transparente.
+- fuentes/consignas_por_grupo.docx: documento de las consignas aportadas.
 
-PARA PUBLICAR EN GITHUB PAGES
-1. Creá un repositorio y subí todo el CONTENIDO de esta carpeta, conservando las rutas.
-2. En Settings > Pages, seleccioná Deploy from a branch > main > /(root) y guardá.
-3. GitHub mostrará la dirección pública después de procesar la publicación.
-4. Si querés, creá un código QR con esa dirección para exhibirlo en la muestra.
+NOTA SOBRE EL VISOR
+Las vistas giratorias no son modelos tridimensionales volumétricos ni escaneos
+fotogramétricos. Son secuencias de fotos sin fondo tomadas desde varios ángulos
+del mismo trabajo, por lo que respetan la apariencia registrada por los chicos.
+El grupo 4 no tiene fotografías de una maqueta y se presenta mediante su afiche.
 
-SOBRE LOS MODELOS 3D
-Los modelos giratorios son RECREACIONES GEOMÉTRICAS APROXIMADAS, elaboradas a partir
-las fotografías del proyecto, y NO son escaneos fotogramétricos exactos de las maquetas.
-El visor funciona sin librerías externas y no requiere conexión a internet.
-Para obtener reproducciones digitales exactas con texturas reales hará falta un
-registro fotogramétrico mejor controlado o archivos 3D GLB obtenidos por escaneo.
-
-REGISTROS CON ATRIBUCIÓN PENDIENTE
-- Grupo 4: hay afiche, pero no maqueta fotográfica identificada con certeza.
-- Grupo 6: hay consigna en el Word, pero sin maqueta/afiche asociado con certeza.
-- Maqueta blanca de bancos/estantes: se muestra aparte, sin adjudicarla a un grupo.
-- «Esfera de Dyson»: afiche complementario, distinto de las siete consignas.
-
-NOTA EDITORIAL
-Los textos de los afiches están sintetizados y corregidos para su lectura en pantalla.
-Los pasajes poco legibles NO se han completado mediante suposiciones.
-Los nombres de estudiantes no aparecen por defecto.
+PUBLICACIÓN EN GITHUB PAGES
+Subir el contenido de esta carpeta a la raíz del repositorio elegido.
+El archivo index.html debe quedar en la raíz junto a styles.css y app.js.

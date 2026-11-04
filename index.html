@@ -1,88 +1,91 @@
 <!doctype html>
 <html lang="es-AR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#75253b">
-  <meta name="description" content="Muestra virtual de los proyectos de Educación Tecnológica de segundo año del Instituto Secundario D-201 José Manuel Estrada, Federal, Entre Ríos.">
-  <title>Educación Tecnológica · Muestra digital 2.º año</title>
-  <link rel="icon" type="image/png" href="assets/escudo.png">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="data.js"></script>
-  <script defer src="model.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#6a2138" />
+  <meta name="description" content="Muestra digital de Educación Tecnológica, segundo año, Instituto Secundario D-201 José Manuel Estrada, Federal, Entre Ríos. Recorré las maquetas, los afiches y una visualización giratoria construida con fotografías sin fondo de los proyectos." />
+  <title>Ideas para transformar la escuela | Educación Tecnológica · D-201</title>
+  <link rel="icon" type="image/png" href="assets/escudo_sin_fondo.png" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#proyectos">Ir a los proyectos</a>
-  <div class="top-line"></div>
-  <header class="site-header" id="inicio">
-    <div class="shell header-inner">
-      <a class="brand" href="#inicio" aria-label="Volver al inicio">
-        <img src="assets/escudo.png" alt="Escudo de la institución">
-        <span><b>Instituto Secundario D-201</b><small>“José Manuel Estrada” · Federal, Entre Ríos</small></span>
+  <a class="skip" href="#trabajos">Ir a los proyectos</a>
+  <div class="progress" id="scroll-progress"></div>
+  <header class="header" id="inicio">
+    <div class="wrap header-inner">
+      <a class="identity" href="#inicio" aria-label="Volver a la portada">
+        <img src="assets/escudo_sin_fondo.png" alt="Escudo institucional sin fondo" />
+        <span><strong>Instituto Secundario D-201</strong><small>“José Manuel Estrada” · Federal, Entre Ríos</small></span>
       </a>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="#proyectos">Proyectos</a><a href="#metodologia">El proceso</a><a href="#archivo">Archivo visual</a>
-      </nav>
-      <a href="#proyectos" class="nav-cta">Explorar muestra <span>↗</span></a>
+      <nav class="nav"><a href="#trabajos">Los proyectos</a><a href="#proceso">El recorrido</a><a href="#inquietud">Otra inquietud</a></nav>
+      <a class="header-link" href="#trabajos">Explorar <span aria-hidden="true">↗</span></a>
     </div>
   </header>
+
   <main>
-    <section class="hero shell">
-      <div class="hero-content">
-        <div class="eyebrow"><span class="eyebrow-line"></span> MUESTRA DIGITAL · SEGUNDO AÑO</div>
-        <h1>EDUCACIÓN<br><em>TECNOLÓGICA</em><span class="title-dot">.</span></h1>
-        <p class="hero-lead">Ideas que transforman<br><strong>nuestros espacios.</strong></p>
-        <p class="hero-copy">Un recorrido por los desafíos, las propuestas y las maquetas que construyeron los estudiantes para imaginar una escuela mejor.</p>
-        <div class="hero-actions"><a href="#proyectos" class="button button-primary">Conocer los proyectos <span>↗</span></a><a href="#metodologia" class="button button-link">Cómo trabajamos <span>↓</span></a></div>
-        <div class="hero-foot">Proyectos de aula <span>●</span> Construcción de prototipos <span>●</span> Exploración virtual</div>
+    <section class="hero wrap">
+      <div class="hero-words">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MUESTRA DIGITAL · 2.º AÑO</div>
+        <h1><span>Educación</span><em>Tecnológica<span class="period">.</span></em></h1>
+        <p class="hero-sub">Ideas para transformar la escuela</p>
+        <p class="hero-description">Un recorrido por las necesidades que identificaron los estudiantes, las soluciones que imaginaron y las maquetas que construyeron.</p>
+        <div class="hero-ctas"><a class="btn primary" href="#trabajos">Recorrer la muestra <span>↗</span></a><a class="sub-link" href="#proceso">Conocer el proceso <span>↓</span></a></div>
+        <p class="hero-meta"><span class="dot"></span> SEGUNDO AÑO <span class="slash">/</span> PROYECTO TECNOLÓGICO</p>
       </div>
-      <div class="hero-gallery" aria-label="Fotografías de las maquetas realizadas">
-        <div class="hero-orbit ring-one"></div><div class="hero-orbit ring-two"></div>
-        <div class="hero-photo hero-photo-one"><img src="assets/fotos/46.webp" alt="Maqueta de un aula organizada"></div>
-        <div class="hero-photo hero-photo-two"><img src="assets/fotos/36.webp" alt="Maqueta del kiosco escolar"></div>
-        <div class="hero-photo hero-photo-three"><img src="assets/fotos/26.webp" alt="Maqueta del asiento para el patio"></div>
-        <div class="hero-label"><span class="hero-label-circle">↻</span><span>Observar.<br>Diseñar.<br><strong>Transformar.</strong></span></div>
-        <div class="hero-corner-mark">ET / 02</div>
+      <div class="hero-scene" aria-label="Fotografías de tres maquetas reales sobre fondos neutros">
+        <div class="hero-halo"></div><div class="hero-outline hero-outline-one"></div><div class="hero-outline hero-outline-two"></div>
+        <div class="hero-cutout hero-kiosk"><img src="assets/maquetas_sin_fondo/g5_00.webp" alt="Maqueta del kiosco escolar" /></div>
+        <div class="hero-cutout hero-chair"><img src="assets/maquetas_sin_fondo/g1_00.webp" alt="Maqueta del asiento para el patio" /></div>
+        <div class="hero-cutout hero-sinks"><img src="assets/maquetas_sin_fondo/g7_00.webp" alt="Maqueta del mueble para los elementos de higiene" /></div>
+        <span class="scene-caption">PROTOTIPOS REALES / FOTOGRAFÍAS DE LOS ESTUDIANTES</span>
       </div>
     </section>
-    <section class="metrics-band" aria-label="Datos de la muestra"><div class="shell metrics">
-      <div><strong>07</strong><span>problemáticas<br>para investigar</span></div><div><strong>71</strong><span>fotografías<br>del recorrido</span></div><div><strong>3D</strong><span>modelos orientativos<br>que podés girar</span></div>
-      <p>La tecnología comienza cuando identificamos una necesidad y buscamos una solución.</p>
-    </div></section>
-    <section class="projects-section shell" id="proyectos">
-      <div class="section-head"><div><div class="eyebrow"><span class="eyebrow-line"></span> 01 / LA MUESTRA</div><h2>Proyectos para <em>explorar.</em></h2><p>Elegí una propuesta para conocer el problema que la inspiró, leer el contenido de sus afiches y recorrer las maquetas.</p></div><span class="section-counter">7 DESAFÍOS <span>/</span> 2.º AÑO</span></div>
-      <div class="filters-bar" role="group" aria-label="Filtrar proyectos">
-        <button class="filter active" data-filter="all" aria-pressed="true">Todos <span>07</span></button>
-        <button class="filter" data-filter="models" aria-pressed="false">Con modelo 3D</button>
-        <button class="filter" data-filter="posters" aria-pressed="false">Con afiche</button>
-        <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="project-search" type="search" placeholder="Buscar un proyecto..." aria-label="Buscar un proyecto"></div>
+
+    <div class="ribbon"><div class="wrap ribbon-inner"><p>LA TECNOLOGÍA NACE DE UNA NECESIDAD.</p><span>07 <small>DESAFÍOS</small></span><span>06 <small>MAQUETAS FOTOGRAFIADAS</small></span><span>01 <small>INQUIETUD CIENTÍFICA</small></span></div></div>
+
+    <section class="work-section wrap" id="trabajos">
+      <div class="section-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> 01 / LAS PROPUESTAS</div><h2>Proyectos que <i>toman forma.</i></h2><p>Seleccioná cada trabajo para explorar sus fotografías, su afiche y una vista giratoria apoyada en registros reales del prototipo.</p></div><div class="intro-aside">UNA ESCUELA<br><strong>MUCHAS IDEAS.</strong></div></div>
+      <div class="filter-row" role="group" aria-label="Filtrar los proyectos">
+        <button class="filter selected" data-filter="all" aria-pressed="true">Todos los proyectos <span>07</span></button>
+        <button class="filter" data-filter="3d" aria-pressed="false">Con vista giratoria</button>
+        <button class="filter" data-filter="poster" aria-pressed="false">Con afiche</button>
+        <label class="search-label"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar por tema..." aria-label="Buscar proyecto" /></label>
       </div>
       <div class="project-grid" id="project-grid"></div>
-      <p id="no-results" class="no-results" hidden>No se encontraron proyectos para esa búsqueda.</p>
+      <p class="empty-search" id="empty-search" hidden>No se encontraron proyectos con esos filtros.</p>
+      <div class="project-note"><span class="note-symbol">i</span> Las maquetas se muestran con fotografías sin fondo. Las vistas giratorias recorren ángulos reales de cada trabajo; no son modelos 3D volumétricos.</div>
     </section>
-    <section class="method-section" id="metodologia"><div class="shell">
-      <div class="method-top"><div><div class="eyebrow light"><span class="eyebrow-line"></span> 02 / EL PROCESO</div><h2>De un problema real<br>a una <em>idea posible.</em></h2></div><p>La actividad propuso recorrer las etapas de un proyecto tecnológico: investigar, comparar alternativas, planificar, construir y evaluar.</p></div>
-      <div class="method-steps" id="method-steps"></div>
-      <div class="method-bottom">LA ESCUELA COMO ESPACIO PARA IMAGINAR Y CONSTRUIR SOLUCIONES <span>↗</span></div>
-    </div></section>
-    <section class="archive-section shell" id="archivo"><div class="section-head"><div><div class="eyebrow"><span class="eyebrow-line"></span> 03 / ARCHIVO VISUAL</div><h2>Más para <em>descubrir.</em></h2><p>También se conservan materiales del ZIP que no pudimos asociar de manera segura a uno de los siete grupos.</p></div></div>
-      <div class="archive-grid">
-        <article class="archive-card archive-prototype"><div class="archive-img"><img src="assets/fotos/01.webp" alt="Maqueta adicional de un espacio con bancos y estantes" loading="lazy"><span class="arch-tag">PROTOTIPO SIN ATRIBUCIÓN</span></div><div class="archive-copy"><small>UN MODELO MÁS</small><h3>Espacio con bancos y estantes</h3><p>Una maqueta fotografiada desde varios ángulos. Su grupo no se identifica de manera concluyente en los archivos.</p><button class="text-button" data-extra="prototype">Explorar el modelo y sus fotos ↗</button></div></article>
-        <article class="archive-card"><div class="archive-img"><img src="assets/fotos/70.webp" alt="Afiche titulado Esfera de Dyson" loading="lazy"><span class="arch-tag">AFICHE COMPLEMENTARIO</span></div><div class="archive-copy"><small>OTRO MATERIAL DEL ZIP</small><h3>La esfera de Dyson</h3><p>Un afiche sobre una estructura hipotética de captación de energía estelar. Se incluye por separado de las consignas del proyecto.</p><button class="text-button" data-extra="dyson">Ver el contenido digitalizado ↗</button></div></article>
-      </div>
-    </section>
-    <section class="closing"><div class="shell closing-inner"><div class="closing-icon">✳</div><div><div class="eyebrow light">EDUCACIÓN TECNOLÓGICA · 2.º AÑO</div><h2>Todo gran proyecto<br>empieza con <em>una pregunta.</em></h2><p>Gracias por recorrer los trabajos realizados por nuestros estudiantes.</p></div><a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a></div></section>
-  </main>
-  <footer class="site-footer"><div class="shell footer-inner"><div class="footer-school"><img src="assets/escudo.png" alt=""/><span>Instituto Secundario D-201<br><strong>“José Manuel Estrada”</strong></span></div><small>Federal · Entre Ríos · Educación Tecnológica · Segundo año</small><span class="footer-stamp">PROYECTOS / 2026</span></div></footer>
 
-  <div class="modal-shell" id="project-modal" hidden aria-hidden="true">
-    <div class="modal-backdrop" data-close="modal"></div>
-    <section class="modal-content" role="dialog" aria-modal="true" aria-label="Detalle del proyecto" tabindex="-1">
-      <div class="modal-head"><div class="modal-crumb">MUESTRA DIGITAL <span>/</span> <b id="modal-group">GRUPO 01</b></div><button class="close-modal" data-close="modal" aria-label="Cerrar proyecto">×</button></div>
-      <div id="modal-body"></div>
-    </section>
-  </div>
-  <div class="lightbox" id="lightbox" hidden><button id="close-lightbox" aria-label="Cerrar imagen">×</button><img alt="Fotografía ampliada" id="lightbox-image"><p id="lightbox-caption"></p></div>
+    <section class="process" id="proceso"><div class="wrap">
+      <div class="process-head"><div><div class="eyebrow inverse"><span class="eyebrow-line"></span> 02 / EL RECORRIDO</div><h2>De una pregunta a<br><i>una solución posible.</i></h2></div><p>La propuesta invitó a pasar del problema cotidiano al diseño de alternativas, la organización de tareas, la construcción y la evaluación.</p></div>
+      <div class="steps">
+        <article><span>01</span><h3>Observar</h3><p>Reconocer una necesidad de la vida escolar.</p></article>
+        <article><span>02</span><h3>Imaginar</h3><p>Investigar y comparar distintas ideas de solución.</p></article>
+        <article><span>03</span><h3>Proyectar</h3><p>Elegir una propuesta, dibujar y organizar tareas.</p></article>
+        <article><span>04</span><h3>Construir</h3><p>Representar la idea en una maqueta o prototipo.</p></article>
+        <article><span>05</span><h3>Evaluar</h3><p>Identificar logros, dificultades y mejoras posibles.</p></article>
+      </div>
+    </div></section>
+
+    <section class="science wrap" id="inquietud"><div class="science-visual">
+      <div class="star-field" aria-hidden="true"><span class="star-star st1"></span><span class="star-star st2"></span><span class="star-star st3"></span><span class="star-star st4"></span><span class="star-star st5"></span><span class="star-core"></span><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit orbit-c"></span><span class="collector coll1"></span><span class="collector coll2"></span><span class="collector coll3"></span></div>
+      <span class="visual-caption">UNA IDEA HIPOTÉTICA SOBRE ENERGÍA ESTELAR</span>
+    </div><div class="science-copy">
+      <div class="eyebrow"><span class="eyebrow-line"></span> 03 / UNA INQUIETUD DE LOS CHICOS</div>
+      <h2>La curiosidad<br>también <i>es tecnología.</i></h2>
+      <p>Además de resolver problemáticas escolares, dos estudiantes eligieron investigar por iniciativa propia una idea que despertó su interés: <strong>la esfera de Dyson.</strong></p>
+      <p>Es una estructura hipotética propuesta por el físico Freeman Dyson en 1960. Se imagina como un conjunto de estructuras alrededor de una estrella para aprovechar parte de la energía que emite. No es una tecnología construida ni un descubrimiento confirmado.</p>
+      <p class="science-byline">Trabajo presentado por Gervasio Gutiérrez y Joaquín Navarro, según el afiche original.</p>
+      <button class="btn outline" id="open-dyson">Ver la investigación y su afiche <span>↗</span></button>
+    </div></section>
+
+    <section class="end-section"><div class="wrap end-inner"><div class="eyebrow inverse"><span class="eyebrow-line"></span> EDUCACIÓN TECNOLÓGICA · SEGUNDO AÑO</div><h2>Las ideas también<br><i>construyen escuela.</i></h2><p>Gracias por acompañar el recorrido por los trabajos de nuestros estudiantes.</p><a href="#inicio" class="return-top">Volver al comienzo ↑</a></div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div class="footer-brand"><img src="assets/escudo_sin_fondo.png" alt=""/><div><strong>Instituto Secundario D-201</strong><span>“José Manuel Estrada”</span></div></div><p>Federal · Entre Ríos<br>Educación Tecnológica · Segundo año</p><small>EXPOSICIÓN DIGITAL</small></div></footer>
+
+  <div class="modal" id="project-modal" hidden aria-hidden="true"><div class="modal-shade" data-close></div><section class="modal-panel" role="dialog" aria-modal="true" aria-label="Detalle del proyecto" tabindex="-1"><div class="modal-top"><div class="modal-breadcrumb">MUESTRA DIGITAL <span>/</span> <strong id="modal-number">GRUPO 01</strong></div><button class="modal-close" data-close aria-label="Cerrar proyecto">✕ <span>Cerrar</span></button></div><div id="modal-content"></div></section></div>
+  <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" id="lightbox-close" aria-label="Cerrar fotografía">✕</button><img id="lightbox-img" alt="Ampliación de la fotografía"/><div id="lightbox-label"></div></div>
 </body>
 </html>

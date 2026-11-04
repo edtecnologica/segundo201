@@ -1,0 +1,21 @@
+{
+  "grupos_con_fotos": {
+    "1": 9,
+    "2": 9,
+    "3": 9,
+    "5": 10,
+    "6": 14,
+    "7": 10
+  },
+  "total_fotos": 61,
+  "afiches": [
+    "esfera_dyson_trabajo_aparte.webp",
+    "grupo_1.webp",
+    "grupo_3.webp",
+    "grupo_4.webp",
+    "grupo_5.webp",
+    "grupo_5_-_2.webp",
+    "grupo_7.webp"
+  ],
+  "nota": "La vista giratoria utiliza fotos sin fondo; no hay mallas GLB en este paquete."
+}
