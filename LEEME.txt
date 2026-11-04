@@ -26,3 +26,12 @@ El grupo 4 no tiene fotografías de una maqueta y se presenta mediante su afiche
 PUBLICACIÓN EN GITHUB PAGES
 Subir el contenido de esta carpeta a la raíz del repositorio elegido.
 El archivo index.html debe quedar en la raíz junto a styles.css y app.js.
+
+ESFERA DE DYSON: ACTUALIZACIÓN
+- Para ver la maqueta: bajar a “Una inquietud de los chicos” y pulsar “Explorar la maqueta en 3D”.
+- Visor de geometría 3D verdadera: permite girar y acercar el objeto. La forma es una recreación aproximada, no un escaneo.
+- Cinco imágenes originales con fondo transparente: fuentes/esfera_dyson/.
+- Cinco imágenes optimizadas con transparencia: assets/dyson/vista_01.webp ... vista_05.webp.
+- Modelo 3D interoperable: assets/dyson/esfera_dyson_recreacion.glb.
+- Motor de visualización offline: dyson-viewer.js + dyson-mesh.js.
+- El navegador puede abrir index.html directamente, sin servicios externos.

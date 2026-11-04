@@ -54,3 +54,58 @@ body.modal-active{overflow:hidden}.modal[hidden],.lightbox[hidden]{display:none!
 .card-art img{background:transparent!important;}
 .hero-cutout img{background:transparent;filter:drop-shadow(0 13px 18px rgba(35,23,25,.15));}
 .spin-frame-img,.real-frame img{background:transparent;object-fit:contain;}
+
+/* Esfera de Dyson: galería real + modelo 3D orbitable */
+.dyson-feature-visual{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;isolation:isolate}
+.dyson-feature-visual img{position:relative;z-index:2;width:min(82%,430px);height:85%;object-fit:contain;filter:drop-shadow(0 24px 35px rgba(0,0,0,.45));animation:dysonFloat 7s ease-in-out infinite}
+.dyson-hero-halo{position:absolute;left:50%;top:50%;width:68%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(217,86,43,.20),rgba(126,35,56,.10) 45%,transparent 70%);box-shadow:0 0 0 1px #d4a3a31a}
+.dyson-feature-tag{position:absolute;z-index:3;top:18px;left:18px;font-size:10px;font-weight:800;letter-spacing:.12em;color:#ead8d7;background:#110f1db5;padding:9px 12px;border:1px solid #d7c3ca35}
+@keyframes dysonFloat{0%,100%{transform:translateY(2px)}50%{transform:translateY(-12px)}}
+.dyson-modal{padding:37px 40px 50px}
+.dyson-intro{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
+.dyson-intro h2{font:normal clamp(36px,4.5vw,57px)/1.08 Georgia,serif;letter-spacing:-.035em;margin:10px 0 9px;color:#251b20}
+.dyson-intro h2 em{color:var(--wine);font-weight:normal}
+.dyson-intro p{font-size:14px;color:#7f7275;max-width:630px;line-height:1.6;margin:0}
+.dyson-authors{font-size:10px;line-height:2;text-align:right;color:#9b737d;font-weight:800;letter-spacing:.1em;flex-shrink:0}
+.dyson-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:26px;align-items:start}
+.dyson-left{min-width:0}
+.dyson-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.dyson-tab{padding:11px 14px;border:1px solid #e4d8d7;background:white;color:#6f5861;font-size:11px;font-weight:800;cursor:pointer}
+.dyson-tab.active{background:var(--wine);border-color:var(--wine);color:white}
+.dyson-display[hidden]{display:none!important}
+.dyson-3d-stage{height:475px;border-radius:7px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 48%,#513445 0%,#261927 52%,#120f1b 100%);border:1px solid #d0b9bd22}
+.dyson-stage-glow{position:absolute;pointer-events:none;width:45%;height:50%;left:27%;top:25%;border-radius:50%;background:radial-gradient(circle,rgba(245,108,44,.19),transparent 75%);filter:blur(25px)}
+#dyson-canvas{display:block;position:relative;width:100%;height:100%;cursor:grab;touch-action:none}
+#dyson-canvas:active{cursor:grabbing}
+.dyson-watermark{position:absolute;top:15px;left:15px;padding:8px 10px;background:#f6ebecd9;color:#603446;font-size:10px;font-weight:800;letter-spacing:.08em;pointer-events:none}
+.dyson-hint{position:absolute;bottom:16px;left:16px;color:#f7e7e7b9;font-size:11px;letter-spacing:.02em;pointer-events:none}
+.dyson-error{position:absolute;top:38%;left:7%;right:7%;color:#fff;background:#5a2b3fe0;padding:16px;line-height:1.5;font-size:13px}
+.dyson-controls,.dyson-photo-controls{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0 0}
+.dyson-controls button,.dyson-photo-controls button{background:#fff;color:var(--wine);padding:10px 12px;font-size:11px;font-weight:800;border:1px solid #e8dad9;cursor:pointer}
+.dyson-controls button:hover,.dyson-photo-controls button:hover{background:#f5eeed}
+.dyson-note{font-size:11px!important;line-height:1.7!important;color:#96868b!important;margin:14px 0 0!important}
+.dyson-photo-stage{height:475px;position:relative;background:radial-gradient(circle at 50% 35%,#fffdfb,#eee6e1);display:flex;align-items:center;justify-content:center;border-radius:7px;overflow:hidden}
+.dyson-photo-stage img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 18px rgba(34,15,18,.18))}
+.dyson-photo-stage span{position:absolute;bottom:14px;right:15px;background:#ffffffda;color:var(--wine);font-size:11px;font-weight:800;padding:7px 10px}
+.dyson-thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto}
+.dyson-thumbs button{background:#f3eeee;border:2px solid transparent;padding:3px;flex:1;min-width:58px;height:84px;cursor:pointer}
+.dyson-thumbs button.selected{border-color:var(--wine)}
+.dyson-thumbs img{width:100%;height:100%;object-fit:contain}
+.dyson-poster-stage{height:525px;display:flex;align-items:center;justify-content:center;background:#efe9e5;border-radius:7px;padding:18px}
+.dyson-poster-stage img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in;box-shadow:0 12px 22px #38262c17}
+.dyson-right{background:#fff;border:1px solid #e9deda;padding:25px 27px 27px;min-width:0}
+.dyson-right h3{font:normal 26px/1.17 Georgia,serif;margin:12px 0 16px;letter-spacing:-.02em}
+.dyson-right p{font-size:12.5px;line-height:1.72;color:#756a70;margin:0 0 16px}
+.dyson-fact{margin:18px 0;padding:18px;background:#f7f0ee;border-left:3px solid var(--wine)}
+.dyson-fact strong{display:block;font-size:13px;color:var(--wine);margin-bottom:9px}
+.dyson-fact p{margin:0}
+.dyson-glb-link{display:inline-block;background:var(--wine);color:#fff;padding:11px 14px;text-decoration:none;font-size:11px;font-weight:800;margin:7px 0 8px}
+.dyson-glb-link:hover{background:#512037}
+.dyson-right .dyson-source{font-size:10px;color:#9e9094;margin-top:12px}
+@media(max-width:900px){.dyson-layout{grid-template-columns:minmax(0,1fr)}.dyson-right{padding:23px}.dyson-intro{align-items:start}.dyson-authors{display:none}}
+@media(max-width:640px){.dyson-modal{padding:23px 15px 30px}.dyson-intro h2{font-size:37px}.dyson-intro{margin-bottom:21px}.dyson-3d-stage,.dyson-photo-stage{height:365px}.dyson-controls button{padding:10px}.dyson-photo-stage img{max-height:95%}.dyson-poster-stage{height:420px}.dyson-feature-visual img{width:94%}}
+@media(prefers-reduced-motion:reduce){.dyson-feature-visual img{animation:none}}
+
+/* Secuencia 3D generada como alternativa si el navegador no habilita WebGL */
+.dyson-fallback-frame{position:absolute;left:50%;top:50%;max-width:100%;max-height:96%;width:100%;height:100%;object-fit:contain;cursor:grab;touch-action:none;user-select:none;filter:drop-shadow(0 20px 28px rgba(0,0,0,.25));will-change:transform}
+.dyson-fallback-frame:active{cursor:grabbing}
