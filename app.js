@@ -81,7 +81,7 @@ function description(p){
 function tabSpecs(p){ return [...(p.model.length?[['model','Vista giratoria']]:[]), ...(p.photos.length?[['photos','Fotografías']]:[]), ...(p.posters.length?[['posters','Afiche']]:[])]; }
 function closePhotoSeq(){ if(photoTimer){ clearInterval(photoTimer); photoTimer=null; } photoPlaying=false; updatePhotoButtons(); }
 function stopSpin(){ if(spinState?.timer){ clearInterval(spinState.timer); spinState.timer=null; } if(spinState) spinState.playing=false; updateSpinButtons(); }
-function closeMedia(){ closePhotoSeq(); stopSpin(); spinPointer=null; photoPointer=null; releaseDyson(); }
+function closeMedia(){ closePhotoSeq(); stopSpin(); spinPointer=null; photoPointer=null; }
 function closeModal(){ closeMedia(); modal.hidden=true; modal.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-active'); activeProject=null; }
 function openProject(id){
   const p=byId(id); if(!p) return; closeMedia(); activeProject=p; activeTab=''; variantIndex=0; photoIndex=p.featured||0; posterIndex=0;
@@ -164,103 +164,13 @@ modal.addEventListener('click', e=>{
   if(a==='openPoster'){ openLightbox(assetURL(activeProject.posters[posterIndex]), `Grupo ${activeProject.id} · Afiche`); return; }
 });
 
-// Esta sección complementaria usa las imágenes de la maqueta y una recreación 3D.
-// Las fotos son reales y el archivo .glb es interpretativo, no un escaneo exacto.
-const DYSON_PHOTOS=[1,2,3,4,5].map(i=>`assets/dyson/vista_${String(i).padStart(2,'0')}.webp`);
-let dysonViewer=null,dysonPhoto=2,dysonPanel='model',dysonActive=false;
-function releaseDyson(){
-  if(dysonViewer){dysonViewer.destroy();dysonViewer=null;}
-  dysonActive=false;
-}
-function dysonChangePanel(panel){
-  if(!dysonActive)return;
-  dysonPanel=panel;
-  $$('.dyson-tab',modal).forEach(b=>{let on=b.dataset.dysonTab===panel;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));});
-  $$('[data-dyson-panel]',modal).forEach(p=>p.hidden=p.dataset.dysonPanel!==panel);
-  const canvas=$('#dyson-canvas');
-  if(panel==='model'&&!dysonViewer){
-    try{
-      dysonViewer=new window.DysonViewer(canvas);
-      canvas.addEventListener('dyson-spin-changed',()=>{
-        const btn=$('[data-dyson-action="spin"]');if(btn)btn.textContent='▶ Reanudar giro';
-      });
-    }catch(err){
-      // Mismo modelo 3D, renderizado como secuencia de vistas si WebGL no está disponible.
-      dysonViewer=new window.DysonFallbackViewer(canvas);
-      const watermark=$('.dyson-watermark');if(watermark)watermark.textContent='MODELO 3D · VISTA RENDERIZADA';
-      canvas.addEventListener('dyson-spin-changed',()=>{const b=$('[data-dyson-action="spin"]');if(b)b.textContent='▶ Reanudar giro';});
-    }
-  }
-}
-function dysonUpdatePhoto(){
-  const img=$('#dyson-photo');if(!img)return;
-  img.src=assetURL(DYSON_PHOTOS[dysonPhoto]);img.alt=`Maqueta de la esfera de Dyson · vista ${dysonPhoto+1} de 5`;
-  $('#dyson-photo-count').textContent=`${String(dysonPhoto+1).padStart(2,'0')} / 05`;
-  $$('[data-dyson-photo]',modal).forEach(b=>b.classList.toggle('selected',Number(b.dataset.dysonPhoto)===dysonPhoto));
-}
 function openDyson(){
-  closeMedia();activeProject=null;dysonActive=true;dysonPhoto=2;dysonPanel='model';
-  $('#modal-number').textContent='UNA INQUIETUD DE LOS CHICOS';
-  modalContent.innerHTML=`
-  <div class="dyson-modal">
-    <div class="dyson-intro"><div><div class="detail-kicker">EXPOSICIÓN COMPLEMENTARIA · EDUCACIÓN TECNOLÓGICA</div><h2>La esfera de <em>Dyson.</em></h2><p>Una investigación surgida de la curiosidad de los estudiantes, acompañada por una maqueta que construyeron y presentaron.</p></div><div class="dyson-authors">GERVASIO GUTIÉRREZ<br>JOAQUÍN NAVARRO</div></div>
-    <div class="dyson-layout">
-      <div class="dyson-left">
-        <div class="dyson-tabs" role="tablist" aria-label="Explorar esfera de Dyson">
-          <button class="dyson-tab active" data-dyson-tab="model" role="tab" aria-selected="true">◉ Modelo 3D</button>
-          <button class="dyson-tab" data-dyson-tab="photos" role="tab" aria-selected="false">▣ 5 imágenes reales</button>
-          <button class="dyson-tab" data-dyson-tab="poster" role="tab" aria-selected="false">▤ Afiche de investigación</button>
-        </div>
-        <section class="dyson-display" data-dyson-panel="model">
-          <div class="dyson-3d-stage"><div class="dyson-stage-glow"></div><canvas id="dyson-canvas" aria-label="Modelo tridimensional interactivo de una esfera naranja rodeada de dos aros negros"></canvas><span class="dyson-watermark">RECREACIÓN 3D ORIENTATIVA</span><p id="dyson-error" class="dyson-error" hidden></p><div class="dyson-hint">Arrastrá para girar · Ruedita para acercar</div></div>
-          <div class="dyson-controls"><button data-dyson-action="spin">⏸ Pausar giro</button><button data-dyson-action="left">↶ Girar</button><button data-dyson-action="right">↷ Girar</button><button data-dyson-action="in">＋ Acercar</button><button data-dyson-action="out">－ Alejar</button><button data-dyson-action="reset">↺ Reiniciar</button></div>
-          <p class="dyson-note">Modelo tridimensional construido a partir de la apariencia de la maqueta de los estudiantes. Se puede rotar libremente; no es un escaneo exacto.</p>
-        </section>
-        <section class="dyson-display" data-dyson-panel="photos" hidden>
-          <div class="dyson-photo-stage"><img id="dyson-photo" src="${assetURL(DYSON_PHOTOS[2])}" alt="Maqueta real de la esfera de Dyson"/><span id="dyson-photo-count">03 / 05</span></div>
-          <div class="dyson-photo-controls"><button data-dyson-action="prev-photo">← Anterior</button><button data-dyson-action="full-photo">⤢ Ampliar foto</button><button data-dyson-action="next-photo">Siguiente →</button></div>
-          <div class="dyson-thumbs">${DYSON_PHOTOS.map((p,i)=>`<button data-dyson-photo="${i}" class="${i===2?'selected':''}" aria-label="Ver imagen ${i+1}"><img src="${assetURL(p)}" alt="" loading="lazy" /></button>`).join('')}</div>
-          <p class="dyson-note">Cinco fotografías de la maqueta real, entregadas con fondo transparente. Conservan sus colores, texturas y construcción artesanal.</p>
-        </section>
-        <section class="dyson-display" data-dyson-panel="poster" hidden>
-          <div class="dyson-poster-stage"><img id="dyson-poster" src="${assetURL('afiches/esfera_dyson_trabajo_aparte.webp')}" alt="Afiche original del trabajo sobre la esfera de Dyson" /></div>
-          <p class="dyson-note">Afiche digitalizado del trabajo presentado. Hacé clic para ampliarlo.</p>
-        </section>
-      </div>
-      <aside class="dyson-right">
-        <div class="section-mini">UNA INQUIETUD DE LOS CHICOS</div>
-        <h3>Imaginar otras tecnologías</h3>
-        <p>Gervasio Gutiérrez y Joaquín Navarro investigaron por iniciativa propia el concepto de la esfera de Dyson y lo compartieron mediante un afiche y una maqueta.</p>
-        <div class="dyson-fact"><strong>¿Qué es una esfera de Dyson?</strong><p>Es un concepto hipotético: un sistema de estructuras alrededor de una estrella diseñado para captar parte de la energía que emite. El físico Freeman Dyson analizó esta posibilidad en 1960.</p></div>
-        <p>Las fotografías muestran la interpretación de los chicos: una esfera naranja, que representa la estrella, rodeada de estructuras negras. No significa que exista una estructura de ese tipo en el espacio.</p>
-        <p>El modelo 3D recrea esas formas de manera aproximada. Para conocer los detalles auténticos de la maqueta, utilizá la galería de imágenes reales.</p>
-        <a href="assets/dyson/esfera_dyson_recreacion.glb" class="dyson-glb-link" download="esfera_dyson_recreacion.glb">↓ Descargar recreación 3D (.glb)</a>
-        <p class="dyson-source">Fuentes: fotografías, afiche de los estudiantes y recreación digital de la maqueta.</p>
-      </aside>
-    </div>
-  </div>`;
-  modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-active');
-  $('.modal-panel',modal).scrollTop=0;$('.modal-panel',modal).focus({preventScroll:true});
-  dysonChangePanel('model');
+  closeMedia(); activeProject=null; $('#modal-number').textContent='INVESTIGACIÓN COMPLEMENTARIA';
+  modalContent.innerHTML=`<div class="scientific-sheet"><div class="dyson-grid"><div><img id="dyson-poster" src="${assetURL('afiches/esfera_dyson_trabajo_aparte.webp')}" alt="Afiche de los estudiantes sobre la esfera de Dyson"></div><div><div class="detail-kicker">UNA INQUIETUD DE LOS CHICOS</div><h2>La esfera de Dyson</h2><p>Este material surgió por interés propio de los estudiantes, fuera de los siete desafíos sobre espacios escolares. Gervasio Gutiérrez y Joaquín Navarro investigaron qué es una esfera de Dyson para compartirlo en la muestra.</p><div class="fact"><h3>¿A qué se refiere?</h3><p>La expresión “esfera de Dyson” se usa para hablar de una megaestructura hipotética pensada para captar gran parte de la energía de una estrella. La idea fue analizada por el físico Freeman Dyson al reflexionar sobre cómo podría aprovechar energía una civilización muy avanzada.</p></div><p>No se trata de un objeto confirmado ni de una construcción real: es una hipótesis teórica que suele representarse como una envoltura o un conjunto de satélites alrededor de una estrella.</p><p>El afiche relaciona esta idea con la escala de Kardashev y con la posibilidad de pensar tecnologías futuras.</p><p><strong>Fuente del trabajo:</strong> afiche elaborado por los estudiantes.</p><button class="btn outline" id="view-dyson-poster">⤢ Ampliar el afiche</button></div></div></div>`;
+  modal.hidden=false; modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-active'); $('.modal-panel',modal).scrollTop=0; $('.modal-panel',modal).focus({preventScroll:true});
 }
 $('#open-dyson').addEventListener('click', openDyson);
-modal.addEventListener('click',e=>{
-  if(!dysonActive)return;
-  const tab=e.target.closest('[data-dyson-tab]');if(tab){dysonChangePanel(tab.dataset.dysonTab);return;}
-  const photo=e.target.closest('[data-dyson-photo]');if(photo){dysonPhoto=Number(photo.dataset.dysonPhoto);dysonUpdatePhoto();return;}
-  if(e.target.closest('#dyson-poster')){openLightbox(assetURL('afiches/esfera_dyson_trabajo_aparte.webp'),'Esfera de Dyson · Afiche del trabajo');return;}
-  const btn=e.target.closest('[data-dyson-action]');if(!btn)return;
-  const a=btn.dataset.dysonAction;
-  if(a==='prev-photo'||a==='next-photo'){dysonPhoto=(dysonPhoto+(a==='next-photo'?1:4))%5;dysonUpdatePhoto();return;}
-  if(a==='full-photo'){openLightbox(assetURL(DYSON_PHOTOS[dysonPhoto]),`Maqueta de la esfera de Dyson · Vista ${dysonPhoto+1}`);return;}
-  if(!dysonViewer)return;
-  if(a==='spin'){dysonViewer.autoSpin=!dysonViewer.autoSpin;btn.textContent=dysonViewer.autoSpin?'⏸ Pausar giro':'▶ Reanudar giro';}
-  if(a==='left'){dysonViewer.autoSpin=false;dysonViewer.yaw-=0.33;const b=$('[data-dyson-action="spin"]');if(b)b.textContent='▶ Reanudar giro';}
-  if(a==='right'){dysonViewer.autoSpin=false;dysonViewer.yaw+=0.33;const b=$('[data-dyson-action="spin"]');if(b)b.textContent='▶ Reanudar giro';}
-  if(a==='in')dysonViewer.zoom(-0.35);
-  if(a==='out')dysonViewer.zoom(0.35);
-  if(a==='reset'){dysonViewer.reset();const b=$('[data-dyson-action="spin"]');if(b)b.textContent='⏸ Pausar giro';}
-});
+modal.addEventListener('click', e=>{ if(e.target.closest('#view-dyson-poster')||e.target.closest('#dyson-poster')) openLightbox(assetURL('afiches/esfera_dyson_trabajo_aparte.webp'),'Investigación de los estudiantes · Esfera de Dyson'); });
 $('#lightbox-close').addEventListener('click', closeLightbox);
 $('#lightbox').addEventListener('click', e=>{ if(e.target.id==='lightbox') closeLightbox(); });
 document.addEventListener('keydown', e=>{

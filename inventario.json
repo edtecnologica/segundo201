@@ -17,12 +17,5 @@
     "grupo_5_-_2.webp",
     "grupo_7.webp"
   ],
-  "nota": "La vista giratoria utiliza fotos sin fondo; no hay mallas GLB en este paquete.",
-  "dyson": {
-    "imagenes_reales": 5,
-    "imagenes_png_originales": true,
-    "visor_3d": true,
-    "archivo_glb": "assets/dyson/esfera_dyson_recreacion.glb",
-    "nota": "Recreación geométrica aproximada de la maqueta; no es un escaneo fotogramétrico."
-  }
+  "nota": "La vista giratoria utiliza fotos sin fondo; no hay mallas GLB en este paquete."
 }
